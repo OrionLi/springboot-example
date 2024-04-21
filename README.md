@@ -162,10 +162,23 @@ Service 可以用来校验数据合法，用来调用多个 Mapper，聚合处�
   给字符串用)，校验非常轻松，完全不用自己写 if-else。甚至注解的内容都可以让 ai 代码助手写
 - 同样是打开京东，受限于屏幕尺寸，手机 APP 和电脑网页能**展示**和**接收**的内容是不一样的。如果用 `domain`
   的类通吃，还要写一堆注解告诉前端那些要传，哪些不要传。但如果用 VO，那前端写的也快乐（需要啥参数传啥），后端维护也快乐（不用写大堆备注给前端了）
-    -
 
 另外，MapStruct 让 VO 转换 domain
 非常轻松，详细入门看这 [OrionLi 翻译的 MapStruct 文档](https://github.com/OrionLi/spring-boot-demo/blob/master/demo-mapping-mapstruct/README.md)
+
+> 这里说下`@NotEmpty`、`@NotBlank`、`@NotNull` 的区别：
+> 1. `@NotNull`
+     >
+     >   适用于基本数据类型(`Integer`，`Long`，`Double`，`Date等等`)，当 `@NotNull` 注解被使用在 `String` 类型的数据上，则表示该数据不能为
+     `null`（但是可以为空，如`""`、`''`）
+>
+> 2. `@NotBlank`
+     >
+     >   适用于 `String` 类型的数据上，加了 `@NotBlank` 注解的参数不能为 `null` 且 `trim()` 之后 `size > 0`
+>
+> 3. `@NotEmpty`
+     >
+     >   适用于 `String`、`Collection集合`、`Map`、数组等等，加了`@NotEmpty` 注解的参数不能为 `null` 或者 长度为 0
 
 ## 异常处理
 
