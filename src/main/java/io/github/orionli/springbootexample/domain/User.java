@@ -59,6 +59,7 @@ public class User implements Serializable {
     @TableField(exist = false)
     private static final long serialVersionUID = 4690279493819688482L;
 
+    //初始化分布式自增id生成器，详情看README
     static {
         YitIdHelper.setIdGenerator(new IdGeneratorOptions());
     }
