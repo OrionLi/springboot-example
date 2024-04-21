@@ -164,7 +164,10 @@ Service 可以用来校验数据合法，用来调用多个 Mapper，聚合处�
   的类通吃，还要写一堆注解告诉前端那些要传，哪些不要传。但如果用 VO，那前端写的也快乐（需要啥参数传啥），后端维护也快乐（不用写大堆备注给前端了）
 
 另外，MapStruct 让 VO 转换 domain
-非常轻松，详细入门看这 [OrionLi 翻译的 MapStruct 文档](https://github.com/OrionLi/spring-boot-demo/blob/master/demo-mapping-mapstruct/README.md)
+非常轻松，简单示例看这 [mapstruct-demo](https://github.com/OrionLi/spring-boot-demo/blob/master/demo-mapping-mapstruct/src/main/java/com/orion/demo/mapstruct/mapping/CarMapper.java),
+详细入门看这 [OrionLi 翻译的 MapStruct 文档](https://github.com/OrionLi/spring-boot-demo/blob/master/demo-mapping-mapstruct/README.md)
+
+MapStruct 在 idea 是有插件的 (MapStruct Support)
 
 > 这里说下`@NotEmpty`、`@NotBlank`、`@NotNull` 的区别：
 > 1. `@NotNull`
