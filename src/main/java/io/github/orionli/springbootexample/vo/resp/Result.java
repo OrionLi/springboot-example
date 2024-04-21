@@ -1,4 +1,4 @@
-package io.github.orionli.springbootexample.vo;
+package io.github.orionli.springbootexample.vo.resp;
 
 import io.github.orionli.springbootexample.enums.ResponseEnum;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package io.github.orionli.springbootexample.vo;
+package io.github.orionli.springbootexample.vo.req;
 
 import java.io.Serial;
 import java.io.Serializable;

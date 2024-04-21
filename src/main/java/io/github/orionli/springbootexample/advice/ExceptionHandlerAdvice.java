@@ -1,18 +1,20 @@
-package io.github.orionli.careerboost.server.advice;
+package io.github.orionli.springbootexample.advice;
 
 import cn.dev33.satoken.exception.NotLoginException;
 import com.google.common.base.Throwables;
-import io.github.orionli.careerboost.common.enums.ResponseEnum;
-import io.github.orionli.careerboost.common.exception.BizException;
-import io.github.orionli.careerboost.common.exception.SystemException;
-import io.github.orionli.careerboost.common.vo.Result;
+import io.github.orionli.springbootexample.enums.ResponseEnum;
+import io.github.orionli.springbootexample.exception.BizException;
+import io.github.orionli.springbootexample.exception.SystemException;
+import io.github.orionli.springbootexample.vo.resp.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
 /**
@@ -22,14 +24,17 @@ import org.springframework.web.method.annotation.HandlerMethodValidationExceptio
  * @date 2024/01/07
  */
 @Slf4j
-@ControllerAdvice(basePackages = "io.github.orionli.careerboost.server.controller")
+@RestControllerAdvice(annotations = {RestController.class, Controller.class})
 @ResponseBody
 public class ExceptionHandlerAdvice {
 
+    /**
+     * NotBlank等校验抛出的异常用，只打印第一条信息
+     */
     @ExceptionHandler({MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.OK)
     public Result commonResponse(MethodArgumentNotValidException e) {
-        log.error(Throwables.getRootCause(e).getMessage());
+
         return Result.fail(ResponseEnum.CLIENT_BAD_PARAMETERS,
                 e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
     }

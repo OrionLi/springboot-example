@@ -1,6 +1,6 @@
-package io.github.orionli.careerboost.common.enums;
+package io.github.orionli.springbootexample.enums;
 
-import io.github.orionli.careerboost.common.vo.Result;
+import io.github.orionli.springbootexample.vo.resp.Result;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -44,7 +44,11 @@ public enum ResponseEnum {
     /**
      * 用户
      */
-    USERNAME_IS_EXIST("C0001", "用户名已存在");
+    USERNAME_IS_EXIST("C0001", "用户名已存在"),
+    PASSWORD_LENGTH_ERROR("C0002", "密码长度不符合要求"),
+    USERNAME_LENGTH_ERROR("C0003", "用户名长度不符合要求"),
+    USERNAME_FORMAT_ERROR("C0004", "用户名格式不符合要求"),
+    SEX_ERROR("C0005", "性别不符合要求");
 
     /**
      * 响应状态

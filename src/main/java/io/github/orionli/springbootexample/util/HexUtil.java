@@ -1,4 +1,4 @@
-package io.github.orionli.encryption;
+package io.github.orionli.springbootexample.util;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.SecureUtil;
@@ -68,7 +68,7 @@ public final class HexUtil {
 
         EncryptionPolicy policy = ENCRYPTION_POLICY_MAP.get(algorithmCode);
         if (policy == null) {
-            throw new UnsupportedOperationException("Unsupported encryption algorithm: " + algorithmCode);
+            throw new UnsupportedOperationException("Unsupported util algorithm: " + algorithmCode);
         }
 
         return encryptedValue.equals(policy.encrypt(plainPassword, salt));

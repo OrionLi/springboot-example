@@ -1,6 +1,6 @@
-package io.github.orionli.careerboost.common.exception;
+package io.github.orionli.springbootexample.exception;
 
-import io.github.orionli.careerboost.common.enums.ResponseEnum;
+import io.github.orionli.springbootexample.enums.ResponseEnum;
 import java.io.Serial;
 import lombok.Getter;
 
