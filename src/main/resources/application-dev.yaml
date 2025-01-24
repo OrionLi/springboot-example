@@ -1,9 +1,9 @@
 ################## 环境变量配置 ##################
-MYSQL_HOST: 192.168.1.88
+MYSQL_HOST: 127.0.0.1
 MYSQL_PORT: 3306
 MYSQL_DATABASE: springboot-example
 MYSQL_USER: root
-MYSQL_PASSWORD: 123456
+MYSQL_PASSWORD: root
 ################## 环境变量配置 ##################
 server:
   port: 8086

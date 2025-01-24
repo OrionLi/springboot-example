@@ -54,7 +54,7 @@ public class UserController {
             throw new BizException(ResponseEnum.PASSWORD_LENGTH_ERROR);
         }
         // 性别校验
-        if (FEMALE.equals(userRegisterVO.getSex()) || MALE.equals(userRegisterVO.getSex())) {
+        if (!FEMALE.equals(userRegisterVO.getSex()) && !MALE.equals(userRegisterVO.getSex())) {
             throw new BizException(ResponseEnum.SEX_ERROR);
         }
 
@@ -123,7 +123,7 @@ public class UserController {
             throw new BizException(ResponseEnum.USERNAME_FORMAT_ERROR);
         }
         // 性别校验
-        if (FEMALE.equals(userUpdateVO.getSex()) || MALE.equals(userUpdateVO.getSex())) {
+        if (!FEMALE.equals(userUpdateVO.getSex()) && !MALE.equals(userUpdateVO.getSex())) {
             throw new BizException(ResponseEnum.SEX_ERROR);
         }
 
