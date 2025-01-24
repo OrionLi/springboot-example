@@ -40,7 +40,6 @@ CREATE TABLE `user`
 - 自增存在回溯问题；
 - 自增值在服务器端产生，存在并发性能问题；
 - 自增值做主键，只能在当前实例中保证唯一，**不能保证全局唯一**；
--
 
 公开数据值，容易引发安全问题，例如知道地址 [http://www.example.com/User/10/](http://www.example.com/customers/10/?fileGuid=xxQTRXtVcqtHK6j8)
 ，很容猜出 User 有 11、12 依次类推的值，容易引发数据泄露；
