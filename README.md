@@ -182,6 +182,11 @@ MapStruct 在 idea 是有插件的 (MapStruct Support)
      >
      >   适用于 `String`、`Collection集合`、`Map`、数组等等，加了`@NotEmpty` 注解的参数不能为 `null` 或者 长度为 0
 
+注意事项：
+
+目前发现当被转换的类有被导入 `jakarta.validation.constraints.Pattern` 和 `jakarta.validation.constraints.Size`
+时，mapstruct 工作不正常。所以我的校验没有全交给 `springboot-validation`，自己又手写了些判断
+
 ## 异常处理
 
 自己看代码，懒得讲

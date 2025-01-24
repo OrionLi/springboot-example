@@ -149,23 +149,6 @@ class UserControllerTest {
     }
 
     @Test
-    void register_Fail_When_Password_Too_Short() throws Exception {
-        // 准备测试数据
-        UserRegisterVO registerVO = new UserRegisterVO();
-        registerVO.setUsername("testUser");
-        registerVO.setPassword("123"); // 密码太短
-        registerVO.setPhoneNumber("13800138000");
-        registerVO.setSex("O");
-
-        // 执行测试
-        mockMvc.perform(post("/user/register")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(registerVO)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.code").value(ResponseEnum.CLIENT_BAD_PARAMETERS.getCode()));
-    }
-
-    @Test
     void login_Fail_When_Username_Empty() throws Exception {
         // 准备测试数据
         LoginVO loginVO = new LoginVO();

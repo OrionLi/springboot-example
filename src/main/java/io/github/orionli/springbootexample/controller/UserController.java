@@ -41,11 +41,24 @@ public class UserController {
      */
     @PostMapping("/register")
     public Result<String> register(@RequestBody @Valid UserRegisterVO userRegisterVO) {
-        User user = converter.toUser(userRegisterVO);
-
-        if (FEMALE.equals(user.getSex()) || MALE.equals(user.getSex())) {
+        // 用户名长度校验
+        if (userRegisterVO.getUsername().length() < 4) {
+            throw new BizException(ResponseEnum.USERNAME_LENGTH_ERROR);
+        }
+        // 用户名格式校验
+        if (userRegisterVO.getUsername().matches(".*[^a-zA-Z0-9_].*")) {
+            throw new BizException(ResponseEnum.USERNAME_FORMAT_ERROR);
+        }
+        // 密码长度校验
+        if (userRegisterVO.getPassword().length() < 6) {
+            throw new BizException(ResponseEnum.PASSWORD_LENGTH_ERROR);
+        }
+        // 性别校验
+        if (FEMALE.equals(userRegisterVO.getSex()) || MALE.equals(userRegisterVO.getSex())) {
             throw new BizException(ResponseEnum.SEX_ERROR);
         }
+
+        User user = converter.toUser(userRegisterVO);
 
         userService.register(user);
         return Result.success("注册成功");
@@ -101,12 +114,21 @@ public class UserController {
      */
     @PutMapping("/update")
     public Result<String> updateUserInfo(@RequestBody @Valid UserUpdateVO userUpdateVO) {
-        User user = converter.toUser(userUpdateVO);
-        user.setId(StpUtil.getLoginIdAsLong());
-
-        if (FEMALE.equals(user.getSex()) || MALE.equals(user.getSex())) {
+        // 用户名长度校验
+        if (userUpdateVO.getUsername().length() < 4) {
+            throw new BizException(ResponseEnum.USERNAME_LENGTH_ERROR);
+        }
+        // 用户名格式校验
+        if (userUpdateVO.getUsername().matches(".*[^a-zA-Z0-9_].*")) {
+            throw new BizException(ResponseEnum.USERNAME_FORMAT_ERROR);
+        }
+        // 性别校验
+        if (FEMALE.equals(userUpdateVO.getSex()) || MALE.equals(userUpdateVO.getSex())) {
             throw new BizException(ResponseEnum.SEX_ERROR);
         }
+
+        User user = converter.toUser(userUpdateVO);
+        user.setId(StpUtil.getLoginIdAsLong());
 
         userDao.updateById(user);
         return Result.success("更新成功");
