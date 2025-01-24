@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -17,20 +17,18 @@
     <name>springboot-example</name>
     <description>springboot-example</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <target.java.version>17</target.java.version>
+        <target.java.version>21</target.java.version>
         <maven.compiler.source>${target.java.version}</maven.compiler.source>
         <maven.compiler.target>${target.java.version}</maven.compiler.target>
 
         <yitter-idgenerator.version>1.0.6</yitter-idgenerator.version>
-        <hutool.version>5.8.27</hutool.version>
-        <mapstruct.version>1.6.0.Beta1</mapstruct.version>
-        <mybatis-plus.version>3.5.6</mybatis-plus.version>
+        <hutool.version>5.8.35</hutool.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <mybatis-plus.version>3.5.10.1</mybatis-plus.version>
         <knife4j.version>4.5.0</knife4j.version>
-        <bean-searcher.version>4.2.7</bean-searcher.version>
-        <fastjson2.version>2.0.49</fastjson2.version>
-        <sa-token.version>1.37.0</sa-token.version>
+        <sa-token.version>1.39.0</sa-token.version>
     </properties>
     <dependencies>
         <!--框架-->
@@ -38,6 +36,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <!--测试-->
         <dependency>
@@ -55,17 +63,6 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
             <version>${mybatis-plus.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.zhxu</groupId>
-            <artifactId>bean-searcher-boot-starter</artifactId>
-            <version>${bean-searcher.version}</version>
-        </dependency>
-        <!--API文档，开发环境用-->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
-            <version>${knife4j.version}</version>
         </dependency>
         <!--权限认证框架-->
         <dependency>
@@ -117,7 +114,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15to18</artifactId>
-            <version>1.77</version>
+            <version>1.79</version>
         </dependency>
         <!--Guava-->
         <dependency>

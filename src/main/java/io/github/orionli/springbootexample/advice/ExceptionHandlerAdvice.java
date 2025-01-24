@@ -10,11 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
 /**
@@ -36,15 +32,15 @@ public class ExceptionHandlerAdvice {
     public Result commonResponse(MethodArgumentNotValidException e) {
 
         return Result.fail(ResponseEnum.CLIENT_BAD_PARAMETERS,
-                e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+                e.getBindingResult().getAllErrors().getFirst().getDefaultMessage());
     }
 
     @ExceptionHandler({HandlerMethodValidationException.class})
     @ResponseStatus(HttpStatus.OK)
     public Result commonResponse(HandlerMethodValidationException e) {
-        log.error(e.getValueResults().get(0).getResolvableErrors().get(0).toString());
+        log.error(e.getValueResults().getFirst().getResolvableErrors().getFirst().toString());
         return Result.fail(ResponseEnum.CLIENT_BAD_PARAMETERS,
-                e.getValueResults().get(0).getResolvableErrors().get(0).getDefaultMessage());
+                e.getValueResults().getFirst().getResolvableErrors().getFirst().getDefaultMessage());
     }
 
     /**

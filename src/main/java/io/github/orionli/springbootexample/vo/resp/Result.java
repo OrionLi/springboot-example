@@ -110,7 +110,7 @@ public final class Result<T> {
      * 自定义状态和信息的失败响应
      *
      * @param responseEnum 状态
-     * @param msg 信息
+     * @param msg          信息
      * @return 自定义状态和信息的失败响应
      */
     public static <T> Result<T> fail(ResponseEnum responseEnum, String msg) {

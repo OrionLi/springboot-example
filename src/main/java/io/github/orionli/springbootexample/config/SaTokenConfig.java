@@ -25,13 +25,7 @@ public class SaTokenConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user/login")
                 .excludePathPatterns("/user/logout")
-                .excludePathPatterns("/user/register")
-                // TODO (OrionLi, 2024/3/11 21:36) knife4j相关，生产环境要删
-                .excludePathPatterns("/**/doc.*",
-                        "/**/swagger-ui.*",
-                        "/**/swagger-resources",
-                        "/**/webjars/**",
-                        "/**/v3/api-docs/**");
+                .excludePathPatterns("/user/register");
     }
-
 }
+

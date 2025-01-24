@@ -1,7 +1,6 @@
 package io.github.orionli.springbootexample.exception;
 
 import io.github.orionli.springbootexample.enums.ResponseEnum;
-import java.io.Serial;
 import lombok.Getter;
 
 /**
@@ -12,9 +11,6 @@ import lombok.Getter;
  */
 @Getter
 public class SystemException extends RuntimeException {
-
-    @Serial
-    private static final long serialVersionUID = 3729438050537226652L;
 
     /**
      * 错误码
@@ -54,7 +50,7 @@ public class SystemException extends RuntimeException {
     /**
      * 使用错误码和错误信息构造 SystemException
      *
-     * @param code 错误码
+     * @param code    错误码
      * @param message 错误信息
      */
     public SystemException(String code, String message) {
@@ -66,16 +62,16 @@ public class SystemException extends RuntimeException {
      * 使用错误信息和 Throwable 构造 SystemException
      *
      * @param message 错误信息
-     * @param cause 错误原因
+     * @param cause   错误原因
      */
     public SystemException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * @param code 错误码
+     * @param code    错误码
      * @param message 错误信息
-     * @param cause 错误原因
+     * @param cause   错误原因
      */
     public SystemException(String code, String message, Throwable cause) {
         super(message, cause);
@@ -93,7 +89,7 @@ public class SystemException extends RuntimeException {
 
     /**
      * @param responseEnum ErrorCodeEnum
-     * @param cause 错误原因
+     * @param cause        错误原因
      */
     public SystemException(ResponseEnum responseEnum, Throwable cause) {
         super(responseEnum.getMessage(), cause);
@@ -103,7 +99,7 @@ public class SystemException extends RuntimeException {
 
     /**
      * @param responseEnum ErrorCodeEnum
-     * @param message 错误信息
+     * @param message      错误信息
      */
     public SystemException(ResponseEnum responseEnum, String message) {
         super(message);

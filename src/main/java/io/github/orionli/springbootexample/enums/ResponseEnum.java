@@ -48,7 +48,9 @@ public enum ResponseEnum {
     PASSWORD_LENGTH_ERROR("C0002", "密码长度不符合要求"),
     USERNAME_LENGTH_ERROR("C0003", "用户名长度不符合要求"),
     USERNAME_FORMAT_ERROR("C0004", "用户名格式不符合要求"),
-    SEX_ERROR("C0005", "性别不符合要求");
+    SEX_ERROR("C0005", "性别不符合要求"),
+    USERNAME_OR_PASSWORD_ERROR("C0006", "用户名或密码错误");
+
 
     /**
      * 响应状态

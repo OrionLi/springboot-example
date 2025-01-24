@@ -3,16 +3,16 @@ spring:
   profiles:
     active: dev
   ############################# server environment end ##############################
-  ############################## MySQL start ##############################
+  ################################## MySQL start ####################################
   datasource:
-    url: jdbc:mysql://192.168.1.88:3306/springboot-example
-    username: root
-    password: 123456
+    url: jdbc:mysql://${MYSQL_HOST:192.168.1.88}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:springboot-example}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123456}
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       minimum-idle: 10
-      maximum-pool-size: 30
+      maximum-pool-size: 60
       idle-timeout: 30000
       maxLifetime: 900000
       connection-test-query: SELECT 1
@@ -20,10 +20,15 @@ spring:
       pool-name: HikariCP
       connection-timeout: 10000
       validation-timeout: 1000
-  ############################## MySQL end ##############################
-  ############################# MybatisPlus start ##############################
+  ################################### MySQL end ###################################
+  ################################ 启用虚拟线程 start ###############################
+  threads:
+    virtual:
+      enabled: true
+  ################################ 启用虚拟线程 end ##################################
+  ############################### MybatisPlus start ###############################
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   mapper-locations: classpath:/dao/*.xml #resource目录下的mybatis xml文件读取路径
-  ############################# MybatisPlus end ##############################
+  ############################### MybatisPlus end #################################

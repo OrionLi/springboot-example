@@ -1,29 +1,32 @@
 package io.github.orionli.springbootexample.vo.req;
 
-import java.io.Serial;
-import java.io.Serializable;
-import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
 
 /**
  * @author OrionLi
  */
 @Data
-public class UserRegisterVO implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 7335293658918571816L;
+public class UserRegisterVO {
 
     /**
      * 用户名
+     * 用户名长度必须在4到20个字符之间
+     * 用户名只能包含字母、数字和下划线
      */
     @NotBlank(message = "用户名不能为空")
+    @Size(min = 4, max = 20, message = "用户名长度必须在4到20个字符之间")
+    @Pattern(regexp = "^[a-zA-Z0-9_]+$", message = "用户名只能包含字母、数字和下划线")
     private String username;
 
     /**
      * 密码
+     * 密码长度至少为6个字符
      */
     @NotBlank(message = "密码不能为空")
+    @Size(min = 6, message = "密码长度至少为6个字符")
     private String password;
 
     /**

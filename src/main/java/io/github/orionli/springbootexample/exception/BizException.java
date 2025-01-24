@@ -1,7 +1,6 @@
 package io.github.orionli.springbootexample.exception;
 
 import io.github.orionli.springbootexample.enums.ResponseEnum;
-import java.io.Serial;
 import lombok.Getter;
 
 /**
@@ -9,9 +8,6 @@ import lombok.Getter;
  */
 @Getter
 public class BizException extends RuntimeException {
-
-    @Serial
-    private static final long serialVersionUID = -1134867555484707611L;
 
     /**
      * 错误码
@@ -51,7 +47,7 @@ public class BizException extends RuntimeException {
     /**
      * 使用错误码和错误信息构造 BizException
      *
-     * @param code 错误码
+     * @param code    错误码
      * @param message 错误信息
      */
     public BizException(String code, String message) {
@@ -63,16 +59,16 @@ public class BizException extends RuntimeException {
      * 使用错误信息和 Throwable 构造 BizException
      *
      * @param message 错误信息
-     * @param cause 错误原因
+     * @param cause   错误原因
      */
     public BizException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
-     * @param code 错误码
+     * @param code    错误码
      * @param message 错误信息
-     * @param cause 错误原因
+     * @param cause   错误原因
      */
     public BizException(String code, String message, Throwable cause) {
         super(message, cause);
@@ -90,7 +86,7 @@ public class BizException extends RuntimeException {
 
     /**
      * @param responseEnum ErrorCodeEnum
-     * @param cause 错误原因
+     * @param cause        错误原因
      */
     public BizException(ResponseEnum responseEnum, Throwable cause) {
         super(responseEnum.getMessage(), cause);
@@ -100,7 +96,7 @@ public class BizException extends RuntimeException {
 
     /**
      * @param responseEnum ErrorCodeEnum
-     * @param message 错误信息
+     * @param message      错误信息
      */
     public BizException(ResponseEnum responseEnum, String message) {
         super(message);

@@ -23,9 +23,8 @@ public interface UserService {
      * 注册用户
      *
      * @param user 用户
-     * @return id
      */
-    Long registerUser(User user);
+    void register(User user);
 
     /**
      * 获取用户信息

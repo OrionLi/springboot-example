@@ -1,4 +1,8 @@
-CREATE TABLE `user`
+CREATE DATABASE IF NOT EXISTS `springboot-example` DEFAULT CHARACTER SET utf8mb4;
+
+USE `springboot-example`;
+
+CREATE TABLE IF NOT EXISTS `user`
 (
     `id`               bigint       NOT NULL COMMENT 'id',
     `username`         varchar(32)  NOT NULL COMMENT '用户名',

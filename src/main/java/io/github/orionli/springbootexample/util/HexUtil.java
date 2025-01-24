@@ -4,10 +4,11 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import cn.hutool.crypto.digest.Digester;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
-import jakarta.validation.constraints.NotBlank;
 
 /**
  * 哈希加密和比对工具
@@ -53,7 +54,7 @@ public final class HexUtil {
      * 用户登录时调用此方法，根据数据库中取出的password字段进行验证
      *
      * @param storedPassword 数据库中存储的密码字符串
-     * @param plainPassword 用户输入的明文密码
+     * @param plainPassword  用户输入的明文密码
      * @return 如果密码匹配，则返回true；否则返回false
      */
     @NotBlank
@@ -103,7 +104,7 @@ public final class HexUtil {
          * 加密给定的明文密码
          *
          * @param plainPassword 明文密码
-         * @param salt 盐值
+         * @param salt          盐值
          * @return 加密后的密码字符串
          */
         String encrypt(String plainPassword, String salt);
